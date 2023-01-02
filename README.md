@@ -1,6 +1,10 @@
 # Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+
+## Notes
+
+The test was performed using mock and form-1 json from the samples folder. 
 
 ## Development server
 
