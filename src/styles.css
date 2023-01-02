@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+    display: flex;
+    align-items: center;
+    padding: 1rem 5rem;
+
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem;
+}
+
+.header {
+    align-items: center;
+}
+
+/* #f44336 */
+
+.mat-form-field-appearance-legacy .mat-hint {
+    color: #f44336;
+}
