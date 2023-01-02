@@ -1,0 +1,97 @@
+<ng-container *ngIf="loading$">
+    <section class="container">
+    <form class="form item" #testForm="ngForm">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+        <mat-form-field  class="form__element">
+            <mat-label>{{ this.fields[0]['title'] }}</mat-label>
+            <input
+                matInput
+                placeholder="{{ this.fields[0]['default'] }}"
+                type="{{ this.fields[3]['format'] }}"
+                type="{{ this.fields[0]['format'] }}"
+                required = "{{ requiredFields.includes('email') }}"
+                value="{{ this.fields[0]['value'] }}"
+                [(ngModel)]="model.email"
+                name="email"
+                #email="ngModel"
+            >
+            <mat-error *ngIf="!email.valid || email.pristine">
+                <span>
+                    {{ this.fields[0]['title'] }} is required
+                </span>
+            </mat-error>
+            <mat-hint *ngIf="errors[0] != undefined">{{ errors[0] }}</mat-hint>
+        </mat-form-field>
+        <mat-form-field  class="form__element">
+            <mat-label>{{ this.fields[1]['title'] }}</mat-label>
+            <input
+                matInput
+                placeholder="{{ this.fields[1]['default'] }}"
+                type="{{ this.fields[1]['format'] }}"
+                required = "{{ requiredFields.includes('firstName') }}"
+                value="{{ this.fields[1]['value'] }}"
+                [(ngModel)]="model.firstName"
+                name="firstName"
+                #firstName="ngModel"
+            >
+        </mat-form-field>
+
+        <mat-form-field  class="form__element">
+            <mat-label>{{ this.fields[2]['title'] }}</mat-label>
+            <input
+                matInput
+                placeholder="{{ this.fields[2]['default'] }}"
+                type="{{ this.fields[2]['format'] }}"
+                required = "{{ requiredFields.includes('lastName') }}"
+                value="{{ this.fields[2]['value'] }}"
+                [(ngModel)]="model.lastName"
+                name="lastName"
+                #lastName="ngModel"
+            >
+            
+        </mat-form-field>
+        <mat-form-field  class="form__element">
+            <mat-label>{{ this.fields[3]['title'] }}</mat-label>
+            <input
+                matInput
+                placeholder="{{ this.fields[3]['default'] }}"
+                type="{{ this.fields[3]['format'] }}"
+                required = "{{ requiredFields.includes('telephone') }}"
+                value="{{ this.fields[3]['value'] }}"
+                [(ngModel)]="model.telephone"
+                name="telephone"
+                #telephone="ngModel"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 0 && event.charCode <= 32"
+                maxlength="10"
+            >
+            <mat-error *ngIf="!telephone.valid || telephone.pristine">
+                {{ this.fields[3]['title'] }} is required
+            </mat-error>
+            <mat-hint *ngIf="errors[3] != undefined">{{ errors[3] }}</mat-hint>
+        </mat-form-field>
+        <mat-form-field  class="form__element">
+            <mat-label>{{ this.fields[4]['title'] }}</mat-label>
+            <textarea
+                matInput
+                placeholder="{{ this.fields[4]['default'] }}"
+                type="{{ this.fields[4]['format'] }}"
+                required = "{{ requiredFields.includes('about') }}"
+                value="{{ this.fields[4]['value'] }}"
+                [(ngModel)]="model.about"
+                name="about"
+                #about="ngModel"
+            >
+            </textarea>
+        </mat-form-field>
+    </form>
+    </section>
+    <div class="container__button">
+    <button [disabled]="!testForm.form.valid" mat-raised-button color="primary" type="submit" (click)="onSubmit(testForm)">
+        <mat-icon class="menuIcon">save</mat-icon>
+        Save
+    </button>
+    </div>
+</ng-container>
+
+|
